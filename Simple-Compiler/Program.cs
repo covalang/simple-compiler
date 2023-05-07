@@ -218,9 +218,9 @@ sealed class ProgramVisitor : GrammarBaseVisitor<None>
 		var paramCount = (Byte) context.parameters().Id().Length;
 		var paramTypes = Enumerable.Repeat(typeof(Int32), paramCount).ToArray();
 		
-		var hold = this.body;
+		var hold = body;
 		var methodBuilder = TypeBuilder.DefineMethod(name, MA.Public | MA.Static | MA.HideBySig, typeof(Int32), paramTypes);
-		this.body = methodBuilder.Body();
+		body = methodBuilder.Body();
 		locals.Clear();
 		parameterIndexes.Clear();
 		var id = context.parameters().Id();
