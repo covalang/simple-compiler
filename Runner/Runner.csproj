@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+
+<!--        <StaticallyLinked>true</StaticallyLinked>-->
+<!--        <PublishAot>true</PublishAot>-->
+<!--        <IlcDisableReflection>true</IlcDisableReflection>-->
+<!--        <InvariantGlobalization>true</InvariantGlobalization>-->
+<!--        <StripSymbols>true</StripSymbols>-->
+        <!--        <StaticExecutable>true</StaticExecutable>--> <!-- Error on native code generation as of 2023/04/22 -->
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="Assembly">
+        <HintPath>..\Simple-Compiler\bin\Debug\net7.0\bin\Assembly.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,1 @@
+﻿return Simple.Main(args);
