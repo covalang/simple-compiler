@@ -14,8 +14,8 @@
     <ItemGroup>
         <PackageReference Include="Antlr4.Runtime.Standard" Version="4.12.0" />
         <PackageReference Include="Antlr4BuildTasks" Version="12.2.0" />
+        <PackageReference Include="Fluent.IL" Version="1.0.1" />
         <PackageReference Include="Lokad.ILPack" Version="0.2.0" />
-<!--        <PackageReference Include="GrEmit" Version="3.4.10" />-->
     </ItemGroup>
 
     <ItemGroup>
