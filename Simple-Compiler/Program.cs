@@ -88,6 +88,8 @@ sealed class ProgramVisitor : GrammarBaseVisitor<None>
 	public override None VisitLocalDeclaration(LocalDeclarationContext context)
 	{
 		var name = context.assignment().Id().GetText();
+		if (parameterIndexes.ContainsKey(name))
+			throw new Exception($"Variable {name} already declared as parameter");
 		Console.WriteLine($"Declaring local: {name}");
 		body.DeclareLocal<Int32>(name, out var local);
 		locals.Add(name, local);
