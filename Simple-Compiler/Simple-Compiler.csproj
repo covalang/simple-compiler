@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         
@@ -12,14 +12,20 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Antlr4.Runtime.Standard" Version="4.12.0" />
-        <PackageReference Include="Antlr4BuildTasks" Version="12.2.0" />
+        <PackageReference Include="Antlr4.Runtime.Standard" Version="4.13.1" />
+        <PackageReference Include="Antlr4BuildTasks" Version="12.8.0" />
         <PackageReference Include="Fluent.IL" Version="1.0.1" />
+        <PackageReference Include="IL-Lumination" Version="1.0.0-beta1" />
         <PackageReference Include="Lokad.ILPack" Version="0.2.0" />
+        <PackageReference Include="MathNet.Numerics.FSharp" Version="5.0.0" />
     </ItemGroup>
 
     <ItemGroup>
         <Antlr4 Include="Grammar.g4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\gremit\GrEmit\GrEmit.csproj" />
     </ItemGroup>
 
 </Project>

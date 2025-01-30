@@ -11,17 +11,19 @@ statement
     | functionInvocation
     ;
 
-localDeclaration: 'local' assignment;
+localDeclaration: 'local' name=Id (':' type=Id)? '=' expr;
 assignment: Id '=' expr;
 return: 'return' expr?;
 functionInvocation: Id '(' (expr (',' expr)*)? ')';
-functionDefinition: 'func' Id '(' parameters? ')' ('{' body '}' | '=>' expr ';');
-parameters: Id (',' Id)*;
+functionDefinition: 'func' Id '(' params? ')' ('{' body '}' | '=>' expr ';');
+params: param (',' param)*;
+param: name=Id ':' type=Id;
 
 expr
     : Id #variableReference
-    | Number #numberLiteral
-//    | String #stringLiteral
+    | Integer #integerLiteral
+    | Char #charLiteral
+    | String #stringLiteral
     | functionInvocation #function
     | '(' expr ')' #subExpr
     | expr binOp expr #binOpExpr
@@ -34,10 +36,26 @@ binOp
     | '-' #sub
     ;
 
+Integer: Number IntegerSuffix?;
+IntegerSuffix: IntegerSignedness IntegerStorageSize;
+IntegerSignedness: 'u' | 'i';
+IntegerStorageSize: '8' | '16' | '32' | '64' | '128';
+
+HexadecimalPrefix: '0x';
+
 Id: [a-zA-Z_][a-zA-Z0-9_]*;
-Number:  Digit+;
+
+Number:  Digit (Digit | '_')*;
 Digit: '0'..'9';
-//String: '"' ( Escape | ~["\\] )* '"' ;
-//Escape: '\\' [\\rnt0];
+
+Char: '\'' ( Escape | ~['\\] ) '\'';
+String: '"' ( Escape | ~["\\] )* '"' ;
+Escape: '\\' [\\rnt0];
+
 Comment: '//' ~('\r' | '\n')* '\r'? '\n' -> skip;
 Whitespace: [ \t\r\n]+ -> skip;
+
+Sign: [+-];
+HexadecimalDigit: [0-9a-fA-F];
+DecimalDigit: [0-9];
+BinaryDigit: [01];
