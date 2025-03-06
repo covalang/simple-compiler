@@ -16,7 +16,7 @@
         <PackageReference Include="Antlr4BuildTasks" Version="12.8.0" />
         <PackageReference Include="Fluent.IL" Version="1.0.1" />
         <PackageReference Include="IL-Lumination" Version="1.0.0-beta1" />
-        <PackageReference Include="Lokad.ILPack" Version="0.2.0" />
+        <PackageReference Include="NickStrupat.Lokad.ILPack" Version="0.2.1" />
         <PackageReference Include="MathNet.Numerics.FSharp" Version="5.0.0" />
     </ItemGroup>
 

@@ -42,7 +42,7 @@ var generator = new AssemblyGenerator();
 var dir = Path.Combine(Environment.CurrentDirectory, "bin");
 Directory.CreateDirectory(dir);
 var path = Path.Combine(dir, assembly.GetName().Name + ".dll");
-generator.GenerateAssembly(assembly, path);
+generator.GenerateAssembly(assembly, [], mainMethod, path);
 return;
 
 Process.Start("dotnet", "publish ../../../../Runner/Runner.csproj -r osx-x64 -c Release").WaitForExit();
